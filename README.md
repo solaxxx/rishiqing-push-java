@@ -36,7 +36,7 @@ https://github.com/solaxxx/rishiqing-push-java/raw/master/dist/rishiqing-push-ja
 
 准备工作
 -----
-* 将jar包中的aliPush-config.properties、miPush-config.properties，拷贝出来，补全相关属性，放入工程的配置文件夹下即可
+* 将下载后的jar包中的aliPush-config.properties、miPush-config.properties拷贝出来，补全相关属性，放入工程的配置文件夹下即可
 
 * 之后会加入通过代码设置相关属性
 

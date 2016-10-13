@@ -47,9 +47,11 @@ V 1.0.0
 
 方法详细说明
 -----
-| Tables        | Are           | Cool  |
+1.对象
+
+| name          | params        | Cool  |
 | ------------- |:-------------:| -----:|
-| col 3 is      | right-aligned | $1600 |
+| PushCenter      | right-aligned | $1600 |
 | col 2 is      | centered      |   $12 |
 | zebra stripes | are neat      |    $1 |
 

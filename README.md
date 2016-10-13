@@ -49,14 +49,14 @@ V 1.0.0
 -----
 1.对象
 
-| name          | method        | params     |remark |
-| ------------- |:-------------:| -----| ------- |
-| PushCenter    | createFactory(String type) |        |PushCenter.HUAWEI, PushCenter.MI null
-| PushBean      | setTitle(String title)      |    | 设置标题|
-|               | setDescription(String description)      |    |设置描述|
-|               | setTarget(String target)      |    |设置目标类型  PushBean.TARGET_ALL , PushBean.TARGET_ALIAS(默认) |
-|               | setTargetValue(Object object)     |    |设置目标alias，可以是字符串也可以是list  例：‘1,2,3’ 或 list a = [] |
-|               | addExtra(String key, String value)      |    |自定义参数，例：pushBean.addExtra('key','value')|
+| name          | method        |remark |
+| ------------- |:-------------:| ------- |
+| PushCenter    | createFactory(String type) |PushCenter.HUAWEI 华为, PushCenter.MI 小米。默认是小米
+| pushBean      | setTitle(String title)      |设置标题|
+|               | setDescription(String description)      |设置描述|
+|               | setTarget(String target)      |设置目标类型  PushBean.TARGET_ALL , PushBean.TARGET_ALIAS(默认) |
+|               | setTargetValue(Object object)     | 设置目标alias，可以是字符串也可以是list  例：‘1,2,3’ 或 list a = [] |
+|               | addExtra(String key, String value)      | 自定义参数，例：pushBean.addExtra('key','value')|
 
 
 打包方式

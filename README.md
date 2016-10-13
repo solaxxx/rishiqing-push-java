@@ -50,12 +50,15 @@ V 1.0.0
 1.对象
 
 | name          | method        | params  | use          |remark |
-| ------------- |:-------------:| :-----:|:--------------:| ------- |
-| PushCenter    | createFactory() | PushCenter.HUAWEI|PushCenter.createFactory(PushCenter.HUAWEI)       |华为推送
+| ------------- |:-------------:| -----|--------------| ------- |
+| PushCenter    | createFactory(String type) | PushCenter.HUAWEI|PushCenter.createFactory(PushCenter.HUAWEI)       |华为推送
 |               |                 | PushCenter.MI| PushCenter.createFactory(PushCenter.MI)       |小米推送
 |               |                 | null | PushCenter.createFactory()             |默认
-| PushBean      | centered      |   $12 ||
-| zebra stripes | are neat      |    $1 ||
+| PushBean      | PushBean(String title, String desp)      |    ||
+|               | PushBean(String title, String desp, String targetValue)      |    ||
+|               | PushBean(String title, String desp, List<String> targetValue)      |    ||
+|               | PushBean(String title, String desp, Object targetValue, String extra)      |    ||
+|               | PushBean(String title, String desp, String targetValue)      |    ||
 
 
 打包方式

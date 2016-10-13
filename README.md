@@ -31,7 +31,7 @@ V 1.0.0
 * 给一个指定用户发送消息
 <pre><code>
     def push = PushCenter.createFactory(PushCenter.HUAWEI)            // android 端使用阿里推送，ios端默认使用小米推送，无法修改
-    PushBean pushBean = new PushBean('标题', "描述", '123')  //  给 alias为123 的用户发送一条提醒
+    PushBean pushBean = new PushBean('标题', "描述", '123')           //  给 alias为123 的用户发送一条提醒
     pushBean.addExtra('sss','sss')                                   //  自定义字段  
     pushBean.addExtra('ddd','ddd')                                   //  自定义字段  
     push.notice.push(pushBean)                                       //  发送
@@ -47,7 +47,7 @@ V 1.0.0
 
 方法详细说明
 -----
-1.对象
+* 对象
 
 | name          | method        |remark |
 | ------------- |:-------------:| ------- |
@@ -58,7 +58,9 @@ V 1.0.0
 |               | setTargetValue(Object object)     | 设置目标alias，可以是字符串也可以是list  例：‘1,2,3’ 或 list a = [] |
 |               | addExtra(String key, String value)      | 自定义参数，例：pushBean.addExtra('key','value')|
 
-2.PushCenter对象方法
+* PushCenter对象方法
+
+生成推送对象：
 def push = PushCenter.createFactory(PushCenter.HUAWEI)
 
 | method        | remark     |

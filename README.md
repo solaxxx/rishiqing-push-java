@@ -22,6 +22,8 @@ pushBean.addExtra('ddd','ddd')                                   //  自定义�
 push.notice.push(pushBean)                                       //  发送
 }} }
 
+{ {{ code here, no space }} }
+
 方法详细说明
 -----
 

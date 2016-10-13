@@ -50,7 +50,7 @@ V 1.0.0
 1.对象
 
 | name          | method        | params  |             remark          |
-| ------------- |:-------------:| -----:|
+| ------------- |:-------------:| -----:|----------------------------:|
 | PushCenter    | createFactory() | PushCenter.HUAWEI|  华为推送         |
 |               |                 | PushCenter.MI|      小米推送        |
 |               |                 | NULL |            默认         |

@@ -5,6 +5,10 @@
 -----
 V 1.0.0
 
+下载
+-----
+https://github.com/solaxxx/rishiqing-push-java/raw/master/dist/rishiqing-push-java-1.0.jar
+
 简介
 -----
 * 推送系统融合了 ”阿里推送” 和 “小米推送”。

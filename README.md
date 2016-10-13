@@ -49,13 +49,13 @@ V 1.0.0
 -----
 1.对象
 
-| name          | method        | params  |
+| name          | method        | params  |             remark          |
 | ------------- |:-------------:| -----:|
-| PushCenter    | createFactory() | PushCenter.HUAWEI|
-|               |                 | PushCenter.MI|
-|               |                 | NULL (PushCenter.MI)|
-| PushBean      | centered      |   $12 |
-| zebra stripes | are neat      |    $1 |
+| PushCenter    | createFactory() | PushCenter.HUAWEI|  华为推送         |
+|               |                 | PushCenter.MI|      小米推送        |
+|               |                 | NULL |            默认         |
+| PushBean      | centered      |   $12 ||
+| zebra stripes | are neat      |    $1 ||
 
 
 打包方式

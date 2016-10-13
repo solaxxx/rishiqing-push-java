@@ -59,8 +59,10 @@ V 1.0.0
 |               | addExtra(String key, String value)      | 自定义参数，例：pushBean.addExtra('key','value')|
 
 2.PushCenter对象方法
-| method        | remark           |
-| ------------- |-------------|
+def push = PushCenter.createFactory(PushCenter.HUAWEI)
+
+| method        | remark     |
+| ------------- | ------------- |
 | push.notice.push(PushBean pushBean)  | 发送一条提醒 |
 | push.message.push(PushBean pushBean)       | 发送一条消息,消息是静默的  |
 

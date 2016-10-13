@@ -10,6 +10,7 @@
 使用示例
 -----
 * 给一个指定用户发送消息
+{ {{
 def push = PushCenter.createFactory(PushCenter.HUAWEI)            // android 端使用华为推送，ios端默认使用小米推送，无法修改
 
 PushBean pushBean = new PushBean('我的测试xiaomi', "sss", '123')  //  给 alias为123 的用户发送一条消息
@@ -19,7 +20,7 @@ pushBean.addExtra('sss','sss')                                 �
 pushBean.addExtra('ddd','ddd')                                   //  自定义字段  
 
 push.notice.push(pushBean)                                       //  发送
-
+}} }
 
 方法详细说明
 -----

@@ -49,11 +49,9 @@ V 1.0.0
 -----
 1.对象
 
-| name          | method        | params  | use          |remark |
-| ------------- |:-------------:| -----|--------------| ------- |
-| PushCenter    | createFactory(String type) | PushCenter.HUAWEI|PushCenter.createFactory(PushCenter.HUAWEI)       |华为推送
-|               |                 | PushCenter.MI| PushCenter.createFactory(PushCenter.MI)       |小米推送
-|               |                 | null | PushCenter.createFactory()             |默认
+| name          | method        | params     |remark |
+| ------------- |:-------------:| -----| ------- |
+| PushCenter    | createFactory(String type) |        |PushCenter.HUAWEI, PushCenter.MI null
 | PushBean      | setTitle(String title)      |    | 设置标题|
 |               | setDescription(String description)      |    |设置描述|
 |               | setTarget(String target)      |    |设置目标类型  PushBean.TARGET_ALL , PushBean.TARGET_ALIAS(默认) |

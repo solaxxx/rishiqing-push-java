@@ -62,6 +62,10 @@ class PushBean {
 
     private  String   alias
 
+    PushBean(String title, String description) {
+        this.title = title
+        this.description = description
+    }
 
     PushBean(String title, String description, String targetValue) {
         this.title = title
@@ -87,7 +91,7 @@ class PushBean {
         this.description = description
         this.target = target
         this.targetValue = targetValue
-        this.extra = extra
+        this.addExtra(extra)
     }
 
     String getTitle() {

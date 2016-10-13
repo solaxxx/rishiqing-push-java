@@ -44,7 +44,7 @@ class PushCenter {
         def push = PushCenter.createFactory(PushCenter.HUAWEI)
         def list = []
         list.add('13916')
-        PushBean pushBean = new PushBean('我的测试xiaomi', "sss", list)
+        PushBean pushBean = new PushBean('我的测试xiaomi', "sss")
         pushBean.target ='all'
         pushBean.addExtra('sss','sss')
         pushBean.addExtra('ddd','ddd')

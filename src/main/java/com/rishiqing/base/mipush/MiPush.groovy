@@ -9,10 +9,7 @@ import com.rishiqing.base.push.AbstractPush
  */
 class MiPush extends AbstractPush{
     MiPush () {
-        println('MiPush 1')
         setMessage(new  Message ())
-        println('MiPush 2')
         setNotice(new  Notice ())
-        println('MiPush 3')
     }
 }

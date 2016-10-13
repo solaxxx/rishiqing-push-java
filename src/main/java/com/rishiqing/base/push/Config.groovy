@@ -8,13 +8,6 @@ class Config {
 
 
     private  static Properties initializeConfig (def key) {
-        println('--------------------------------------')
-        println('--------------------------------------')
-        println('--------------------------------------')
-        println('---------  initializeConfig ----------')
-        println('--------------------------------------')
-        println('--------------------------------------')
-        println('--------------------------------------')
         boolean result = false;
         try {
             Properties config= new Properties();

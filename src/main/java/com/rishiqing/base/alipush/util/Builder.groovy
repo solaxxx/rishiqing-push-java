@@ -44,10 +44,9 @@ class Builder {
         PushRequest pushRequest = new PushRequest();
 // 推送目标
         pushRequest.setAppKey(Long.parseLong(AliPushConfig.getAppKey()));
-        pushRequest.setTarget(body.aliTarget?body.aliTarget:'account'); //推送目标: device:推送给设备; account:推送给指定帐号,tag:推送给自定义标签; all: 推送给全部
-        pushRequest.setTargetValue(body.targetValue); //根据Target来设定，如Target=device, 则对应的值为 设备id1,设备id2. 多个值使用逗号分隔.(帐号与设备有一次最多100个的限制)
+        pushRequest.setTarget(body.target == PushBean.TARGET_ALL ? PushBean.TARGET_ALL : body.aliTarget); //推送目标: device:推送给设备; account:推送给指定帐号,tag:推送给自定义标签; all: 推送给全部
+        pushRequest.setTargetValue(body.targetValue ? body.targetValue : '1'); //根据Target来设定，如Target=device, 则对应的值为 设备id1,设备id2. 多个值使用逗号分隔.(帐号与设备有一次最多100个的限制)
         pushRequest.setDeviceType(body.deviceType); // 设备类型deviceType 取值范围为:0~3. iOS设备: 0; Android设备: 1; 全部: 3, 这是默认值.
-
         // 推送配置
         pushRequest.setType(body.aliType); // 0:表示消息(默认为0), 1:表示通知
         pushRequest.setTitle(body.title?body.title:'日事清消息'); // 消息的标题

@@ -63,8 +63,8 @@ def push = PushCenter.createFactory(PushCenter.HUAWEI)
 
 | method        | remark     |
 | ------------- | ------------- |
-| push.notice.push(PushBean pushBean)  | 发送一条提醒 |
-| push.message.push(PushBean pushBean)       | 发送一条消息,消息是静默的  |
+| push.notice.push(PushBean pushBean)  | 发送提醒 |
+| push.message.push(PushBean pushBean)       | 发送消息,消息是静默的  |
 
 
 打包方式
@@ -73,4 +73,7 @@ def push = PushCenter.createFactory(PushCenter.HUAWEI)
 * 打包并跳过测试：mvn package -Dmaven.test.skip=true
 * 注：打包目前不够完善，需要手动把打包后jar包中的MiPush_SDK_Server_2_2_17.jar > xiaomi包拷贝到com目录中
 
+备注
+-----
+暂无
 

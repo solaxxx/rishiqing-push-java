@@ -49,10 +49,12 @@ V 1.0.0
 -----
 1.对象
 
-| name          | params        | Cool  |
+| name          | method        | params  |
 | ------------- |:-------------:| -----:|
-| PushCenter      | right-aligned | $1600 |
-| col 2 is      | centered      |   $12 |
+| PushCenter    | createFactory() | PushCenter.HUAWEI|
+|               |                 | PushCenter.MI|
+|               |                 | NULL (PushCenter.MI)|
+| PushBean      | centered      |   $12 |
 | zebra stripes | are neat      |    $1 |
 
 

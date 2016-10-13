@@ -58,6 +58,12 @@ V 1.0.0
 |               | setTargetValue(Object object)     | 设置目标alias，可以是字符串也可以是list  例：‘1,2,3’ 或 list a = [] |
 |               | addExtra(String key, String value)      | 自定义参数，例：pushBean.addExtra('key','value')|
 
+2.PushCenter对象方法
+| method        | remark           |
+| ------------- |-------------|
+| push.notice.push(PushBean pushBean)  | 发送一条提醒 |
+| push.message.push(PushBean pushBean)       | 发送一条消息,消息是静默的  |
+
 
 打包方式
 -----

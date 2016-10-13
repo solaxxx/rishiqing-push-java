@@ -54,11 +54,11 @@ V 1.0.0
 | PushCenter    | createFactory(String type) | PushCenter.HUAWEI|PushCenter.createFactory(PushCenter.HUAWEI)       |华为推送
 |               |                 | PushCenter.MI| PushCenter.createFactory(PushCenter.MI)       |小米推送
 |               |                 | null | PushCenter.createFactory()             |默认
-| PushBean      | PushBean(String title, String desp)      |    ||
-|               | PushBean(String title, String desp, String targetValue)      |    ||
-|               | PushBean(String title, String desp, List<String> targetValue)      |    ||
-|               | PushBean(String title, String desp, Object targetValue, String extra)      |    ||
-|               | PushBean(String title, String desp, String targetValue)      |    ||
+| PushBean      | setTitle(String title)      |    | 设置标题|
+|               | setDescription(String description)      |    |设置描述|
+|               | setTarget(String target)      |    |设置目标类型  PushBean.TARGET_ALL , PushBean.TARGET_ALIAS(默认) |
+|               | setTargetValue(Object object)     |    |设置目标alias，可以是字符串也可以是list  例：‘1,2,3’ 或 list a = [] |
+|               | addExtra(String key, String value)      |    |自定义参数，例：pushBean.addExtra('key','value')|
 
 
 打包方式

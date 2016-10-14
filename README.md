@@ -34,6 +34,12 @@ https://github.com/solaxxx/rishiqing-push-java/raw/master/dist/rishiqing-push-ja
 
 * 以后会加入更多推送方式，以及更加自由的模式切换。
 
+准备工作
+-----
+* 将下载后的jar包中的aliPush-config.properties、miPush-config.properties拷贝出来，补全相关属性，放入工程的配置文件夹下即可
+
+
+
 使用示例
 -----
 * 给一个指定用户发送消息

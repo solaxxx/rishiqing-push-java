@@ -118,12 +118,22 @@ class PushBean {
         this.target = target
     }
 
+
+
+    void setTarget(Long target) {
+        this.target = String.valueOf(target)
+    }
+
     Object getTargetValue() {
         return targetValue
     }
 
-    void setTargetValue(Object targetValue) {
-        this.targetValue = targetValue
+    void setTargetValue(def targetValue) {
+        if (targetValue instanceof  List) {
+            this.targetValue = targetValue
+        } else {
+            this.targetValue = String.valueOf(targetValue)
+        }
     }
 
     def getExtra() {
@@ -240,6 +250,22 @@ class PushBean {
 
     void addExtra (String key, String value) {
         this.extra[key] = value
+    }
+
+    void addExtra (String key, int value) {
+        this.extra[key] = String.valueOf(value)
+    }
+
+    void addExtra (String key, Integer value) {
+        this.extra[key] = String.valueOf(value)
+    }
+
+    void addExtra (String key, long value) {
+        this.extra[key] = String.valueOf(value)
+    }
+
+    void addExtra (String key, Long value) {
+        this.extra[key] = String.valueOf(value)
     }
 
     int getAliType() {

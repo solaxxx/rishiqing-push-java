@@ -24,7 +24,7 @@ class Targeted {
             bean.target = bean.target == PushBean.TARGET_ALL ? '' : TargetedMessage.TARGET_TYPE_ALIAS
             bean.targetValue.each{ it->
                 TargetedMessage target = new TargetedMessage();
-                target.setTarget(TargetedMessage.TARGET_TYPE_ALIAS, it);
+                target.setTarget(TargetedMessage.TARGET_TYPE_ALIAS, String.valueOf(it));
                 target.setMessage(message);
                 targets.add(target)
             }

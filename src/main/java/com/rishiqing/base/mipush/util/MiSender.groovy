@@ -57,7 +57,7 @@ class MiSender {
 
     static void printStack (Result result) {
         if (result && result.getReason())  {
-            println(result.getReason())
+            println('mipush:' + result.getReason())
         }
     }
 }

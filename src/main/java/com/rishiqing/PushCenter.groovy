@@ -26,6 +26,10 @@ class PushCenter {
 
     private final static AbstractPush aliPush = new AliPush()
 
+    public static AbstractApplyPush createFactory () {
+        createFactory(null)
+    }
+
     public static AbstractApplyPush createFactory (def model) {
         Push push = new Push ();
         switch (model){
@@ -41,13 +45,13 @@ class PushCenter {
         return push
     }
     public static void main (String  [] args) {
-        def push = PushCenter.createFactory(PushCenter.HUAWEI)
-        def list = []
+        def push = PushCenter.createFactory()
+        List list = []
         list.add('13916')
-        PushBean pushBean = new PushBean('我的测试xiaomi', "sss")
-        pushBean.target ='all'
-        pushBean.addExtra('sss','sss')
-        pushBean.addExtra('ddd','ddd')
+        PushBean pushBean = new PushBean('我的测试xiaomi', "sss", list)
+       //  pushBean.targetValue = '13916'
+        pushBean.addExtra('sss',11)
+        pushBean.addExtra('ddd',22)
         push.notice.push(pushBean)
     }
 }

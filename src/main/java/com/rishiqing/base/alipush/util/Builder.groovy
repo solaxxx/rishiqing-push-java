@@ -73,7 +73,7 @@ class Builder {
 
     static void printStack (PushResponse result) {
         if (result && result.message)  {
-            println(result.message)
+            println('huawei push :' + result.message)
         }
     }
 }

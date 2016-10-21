@@ -11,6 +11,7 @@ abstract  class AbstractApplyPush {
 
     public AbstractMessage message  =  new Message()
 
+    //1
     public AbstractMessage notice   =  new Notice()
 
     // public AbstractMessage messageOffline  =  new MessageOffline()

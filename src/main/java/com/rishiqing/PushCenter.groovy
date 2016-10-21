@@ -46,12 +46,13 @@ class PushCenter {
     }
     public static void main (String  [] args) {
         def push = PushCenter.createFactory()
-        List list = []
-        list.add('13916')
-        PushBean pushBean = new PushBean('我的测试xiaomi', "sss", list)
-       //  pushBean.targetValue = '13916'
+        PushBean pushBean = new PushBean('我的测试xiaomi', "sss")
+        pushBean.targetValue = '282'
+        pushBean.soundURL = 'pushsound'
         pushBean.addExtra('sss',11)
         pushBean.addExtra('ddd',22)
         push.notice.push(pushBean)
+/*        Calendar calendar = Calendar.getInstance()
+        println(calendar.get(Calendar.AM_PM))*/
     }
 }

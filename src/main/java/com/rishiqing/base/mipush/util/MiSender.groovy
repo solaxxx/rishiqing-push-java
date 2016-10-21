@@ -19,7 +19,7 @@ class MiSender {
          int rePush =  body.rePush?body.rePush:0 //  0不重试
          Sender sender = new Sender(body.appSecret);
          Result result = sender.send(message, body.regId, rePush); //根据regID，发送消息到指定设备上，不重试。
-         printStack(result)
+         printStack(body,result)
     }
 
     /**
@@ -32,7 +32,7 @@ class MiSender {
         int rePush =  body.rePush?body.rePush:0 //  0不重试
         Sender sender = new Sender(body.appSecret);
         Result result = sender.send(message, body.alias, rePush); //根据regID，发送消息到指定设备上，不重试。
-        printStack(result)
+        printStack(body,result)
     }
 
     /**
@@ -45,19 +45,26 @@ class MiSender {
         int rePush =  body.rePush?body.rePush:0//  0不重试
         Sender sender = new Sender(body.appSecret);
         Result result = sender.send(messages, rePush); //根据regID，发送消息到指定设备上，不重试。
-        printStack(result)
+        printStack(body,result)
     }
 
     static void sendToAll (Message message, PushBean body) {
         MiPushConfig.userEnvironment()
         Sender sender = new Sender(body.appSecret);
         Result result = sender.broadcastAll(message, 0)
-        printStack(result)
+        printStack(body,result)
     }
 
     static void printStack (Result result) {
         if (result && result.getReason())  {
             println('mipush:' + result.getReason())
+        }
+    }
+
+    static void printStack (PushBean pushBean, Result result) {
+        String  device = pushBean.deviceRecord == 0 ? 'android' : 'ios'
+        if (result && result.getReason())  {
+            println('mipush:' + device + ' '+ result.getReason())
         }
     }
 }

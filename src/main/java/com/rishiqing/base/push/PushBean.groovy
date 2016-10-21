@@ -8,11 +8,13 @@ import com.rishiqing.base.mipush.util.MiPushConfig
  * 传入参数的规范类
  *
  */
-class PushBean {
+class PushBean implements Cloneable{
 
     public static TARGET_ALL   =  'all'
 
     public static TARGET_ALIAS =  'alias'
+
+    public int deviceRecord = 0 // 0 android  1 ios
 
     /**
      * 公共参数
@@ -92,6 +94,14 @@ class PushBean {
         this.target = target
         this.targetValue = targetValue
         this.addExtra(extra)
+    }
+
+    int getDeviceRecord() {
+        return deviceRecord
+    }
+
+    void setDeviceRecord(int deviceRecord) {
+        this.deviceRecord = deviceRecord
     }
 
     String getTitle() {
@@ -275,4 +285,5 @@ class PushBean {
     void setAliType(int aliType) {
         this.aliType = aliType
     }
+
 }

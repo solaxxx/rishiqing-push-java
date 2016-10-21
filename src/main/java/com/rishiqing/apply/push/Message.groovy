@@ -16,29 +16,33 @@ class Message extends AbstractMessage{
     }
     @Override
     void push(PushBean body) {
+        PushBean androidBean = body.clone()
         ThreadUtil.executeTread(new Runnable(){
             @Override
             public void run() {
-                try{ androidPush.message.pushAndroid(body) }catch (Exception e){ e.printStackTrace() } }
+                try{ androidPush.message.pushAndroid(androidBean) }catch (Exception e){ e.printStackTrace() } }
         })
+        PushBean iosBean = body.clone()
         ThreadUtil.executeTread(new Runnable(){
             @Override
             public void run() {
-                try{  iosPush.message.pushIos(body) }catch (Exception e){ e.printStackTrace() } }
+                try{  iosPush.message.pushIos(iosBean) }catch (Exception e){ e.printStackTrace() } }
         })
     }
 
     @Override
     void push(PushBean body, Map params) {
+        PushBean androidBean = body.clone()
         ThreadUtil.executeTread(new Runnable(){
             @Override
             public void run() {
-                try{ androidPush.message.pushAndroid(body, params) }catch (Exception e){ e.printStackTrace() }  }
+                try{ androidPush.message.pushAndroid(androidBean, params) }catch (Exception e){ e.printStackTrace() }  }
         })
+        PushBean iosBean = body.clone()
         ThreadUtil.executeTread(new Runnable(){
             @Override
             public void run() {
-                try{ iosPush.message.pushIos(body, params) } catch (Exception e){ e.printStackTrace() }
+                try{ iosPush.message.pushIos(iosBean, params) } catch (Exception e){ e.printStackTrace() }
             }
         })
     }

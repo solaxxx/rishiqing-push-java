@@ -17,6 +17,7 @@ class Builder {
      */
      static Message getAndroidMessage (PushBean body) {
         if (!body)  return;body.appSecret = MiPushConfig.getAppSecretAndroid();
+         body.deviceRecord = 0
          Message.Builder builder =  new Message.Builder()
          builder .title(body.title)
                  .description(body.description).payload(body.messagePayload)
@@ -41,6 +42,7 @@ class Builder {
      static Message getIosMessage (PushBean body) {
          try{
              if (!body)  return; body.appSecret = MiPushConfig.getAppSecretIos();
+             body.deviceRecord = 1
              String description;
              if (body.title) {
                  description = body.title
@@ -52,6 +54,7 @@ class Builder {
                      .soundURL(body.soundURL)    // 消息铃声
                      .badge(Integer.parseInt(body.badge))               // 数字角标
                      .category(body.category)     // 快速回复类别
+                     .timeToLive(body.timeToLive)      // 离线保存时间，默认不离线保存
              if (body.extra) {
                  body.extra.each{ key, value ->
                      builder.extra(key, value)

@@ -10,39 +10,30 @@ import com.rishiqing.utils.ThreadUtil
  * Created by solax on 2016/8/22.
  */
 class Message extends AbstractMessage{
-    Message () { super() }
-    Message(AbstractPush androidPush, AbstractPush iosPush) {
-        super(androidPush, iosPush)
-    }
     @Override
     void push(PushBean body) {
-        PushBean androidBean = body.clone()
+        this.iosPush.each{ it ->
+            this.pushToIos(it, body)
+        }
+        this.androidPush.each{ it ->
+            this.pushToAndroid(it, body)
+        }
+    }
+    private void pushToAndroid (AbstractPush push, PushBean pushBean) {
+        PushBean androidBean = pushBean.clone()
         ThreadUtil.executeTread(new Runnable(){
             @Override
             public void run() {
-                try{ androidPush.message.pushAndroid(androidBean) }catch (Exception e){ e.printStackTrace() } }
-        })
-        PushBean iosBean = body.clone()
-        ThreadUtil.executeTread(new Runnable(){
-            @Override
-            public void run() {
-                try{  iosPush.message.pushIos(iosBean) }catch (Exception e){ e.printStackTrace() } }
+                try{ push.message.pushAndroid(androidBean) }catch (Exception e){ e.printStackTrace() }
+            }
         })
     }
-
-    @Override
-    void push(PushBean body, Map params) {
-        PushBean androidBean = body.clone()
+    private void pushToIos (AbstractPush push, PushBean pushBean) {
+        PushBean iosBean = pushBean.clone()
         ThreadUtil.executeTread(new Runnable(){
             @Override
             public void run() {
-                try{ androidPush.message.pushAndroid(androidBean, params) }catch (Exception e){ e.printStackTrace() }  }
-        })
-        PushBean iosBean = body.clone()
-        ThreadUtil.executeTread(new Runnable(){
-            @Override
-            public void run() {
-                try{ iosPush.message.pushIos(iosBean, params) } catch (Exception e){ e.printStackTrace() }
+                try{ push.message.pushIos(iosBean) }catch (Exception e){ e.printStackTrace() }
             }
         })
     }

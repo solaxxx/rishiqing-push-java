@@ -30,10 +30,6 @@ class MiPushConfig extends Config{
         return miPush.timeToLive.trim();
     }
 
-    static getIosEnv () {
-        return miPush.iosEnv.trim();
-    }
-
     static userEnvironment () {
         def model = getIosEnv()
         switch (model) {

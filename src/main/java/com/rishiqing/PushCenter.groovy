@@ -2,10 +2,13 @@ package com.rishiqing
 
 import com.rishiqing.apply.push.Push
 import com.rishiqing.apply.base.AbstractApplyPush
+import com.rishiqing.base.jpush.JPush
 import com.rishiqing.base.push.AbstractPush
 import com.rishiqing.base.alipush.AliPush
 import com.rishiqing.base.mipush.MiPush
 import com.rishiqing.base.push.PushBean
+import com.sun.org.apache.bcel.internal.generic.PUSH
+import org.apache.log4j.BasicConfigurator
 
 /**
  * Created by solax on 2016/8/22.
@@ -18,41 +21,50 @@ import com.rishiqing.base.push.PushBean
 
 class PushCenter {
 
-    public  final static  String HUAWEI = 'huawei'
+    private  static configRootPath
+
+/*    public  final static  String HUAWEI = 'huawei'
 
     public final static  String MI     = 'mi'
 
-    private final static AbstractPush miPush = new MiPush()
+    public final static  String JPUSH     = 'jPush'*/
 
-    private final static AbstractPush aliPush = new AliPush()
+    public final static AbstractPush MI_PUSH = new MiPush()
+
+    public final static AbstractPush ALI_PUSH = new AliPush()
+
+    public  final static AbstractPush J_PUSH   = new JPush()
 
     public static AbstractApplyPush createFactory () {
-        createFactory(null)
+        return new Push()
     }
 
-    public static AbstractApplyPush createFactory (def model) {
-        Push push = new Push ();
-        switch (model){
-            case HUAWEI :
-                push.setPush(aliPush, miPush)
-                break
-            case MI:
-                push.setPush(miPush, miPush)
-                break
-            default:
-                push.setPush(miPush, miPush)
-        }
-        return push
-    }
     public static void main (String  [] args) {
+        // 设置推送配置文件目录
+        PushCenter.setConfigRootPath('push')
+        // 获取推送对象
         def push = PushCenter.createFactory()
-        PushBean pushBean = new PushBean('我的测试xiaomi', "sss")
-        pushBean.targetValue = '282'
+        // 设置推送类型
+        push.addAndroidPush(PushCenter.MI_PUSH)
+        push.addAndroidPush(PushCenter.J_PUSH)
+        push.addAndroidPush(PushCenter.ALI_PUSH)
+        push.addIosPush(PushCenter.J_PUSH)
+        push.addIosPush(PushCenter.MI_PUSH)
+        // 设置推送内容
+        PushBean pushBean = new PushBean('我的测试push', "sss")
+        pushBean.targetValue = '252925'
         pushBean.soundURL = 'pushsound'
         pushBean.addExtra('sss',11)
         pushBean.addExtra('ddd',22)
+        // 推送提醒
         push.notice.push(pushBean)
-/*        Calendar calendar = Calendar.getInstance()
-        println(calendar.get(Calendar.AM_PM))*/
+    }
+
+    public static void setConfigRootPath (String path) {
+        configRootPath = path
+    }
+
+    public static String getConfigRootPath () {
+        return configRootPath
     }
 }

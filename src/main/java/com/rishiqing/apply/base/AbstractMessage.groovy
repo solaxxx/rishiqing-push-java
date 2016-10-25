@@ -7,26 +7,19 @@ import com.rishiqing.base.push.PushBean
  * Created by solax on 2016/8/22.
  */
 abstract  class AbstractMessage {
+    // ios 推送对象list
+    protected List<AbstractPush> iosPush = []
 
-    protected AbstractPush androidPush // android推送
+    // android 推送对象list
+    protected List<AbstractPush>  androidPush = []
 
-    protected AbstractPush iosPush // ios推送
 
-    AbstractMessage () {}
-
-    AbstractMessage (AbstractPush androidPush, AbstractPush iosPush) {
-        this.androidPush = androidPush
-        this.iosPush = iosPush
+    public void addIosPush (AbstractPush push) {
+        iosPush.add(push)
     }
-    public void setIosPush (def iosPush) {
-        this.iosPush = iosPush
-    }
-
-    public void setAndroidPush (def androidPush) {
-        this.androidPush = androidPush
+    public void addAndroidPush (AbstractPush push) {
+        androidPush.add(push)
     }
 
     public abstract  void push (PushBean body)
-
-    public abstract  void push (PushBean body, Map params)
 }

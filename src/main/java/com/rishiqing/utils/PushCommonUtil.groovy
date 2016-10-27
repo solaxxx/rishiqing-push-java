@@ -1,6 +1,7 @@
 package com.rishiqing.utils
 
 import groovy.json.JsonBuilder
+import net.sf.json.JSONObject
 
 import java.security.MessageDigest
 
@@ -9,7 +10,8 @@ import java.security.MessageDigest
  */
 class PushCommonUtil {
     static String mapToJson (Map map) {
-        return  new JsonBuilder( map ).toPrettyString()
+        JSONObject jo = JSONObject.fromObject(map)
+        return jo.toString()
     }
     static String stringToMD5(String inStr){
         MessageDigest md5 = null;

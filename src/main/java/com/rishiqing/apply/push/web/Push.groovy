@@ -13,11 +13,24 @@ class Push  extends AbstractApplyPush{
     Push (WebPush webPush) {
         this.webPush = webPush
     }
+
+    def void webPush (String roomId, String type, Map map) {
+        def p = [
+                type: type,
+                body : map
+        ]
+        this.pushTo(roomId, p)
+    }
+
     def void webPush (String roomId, Map map) {
+        this.pushTo(roomId, map)
+    }
+
+    private void pushTo (String roomId, Map map) {
         ThreadUtil.executeTread(new Runnable(){
             @Override
             public void run() {
-                try{  this.webPush.push(roomId, map)}catch (Exception e){ e.printStackTrace() }
+                try{  webPush.push(roomId, map)}catch (Exception e){ e.printStackTrace() }
             }
         })
     }

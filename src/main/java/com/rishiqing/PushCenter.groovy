@@ -62,7 +62,7 @@ class PushCenter {
     public static void main (String  [] args) {
         // 设置推送配置文件目录
         PushCenter.setConfigRootPath('push')
-        // 获取推送对象
+/*        // 获取推送对象
         def push = PushCenter.createFactory()
         // 设置推送类型
         push.addAndroidPush(PushCenter.MI_PUSH)
@@ -77,10 +77,10 @@ class PushCenter {
         pushBean.addExtra('sss',11)
         pushBean.addExtra('ddd',22)
         // 推送提醒
-        push.notice.push(pushBean)
+        push.notice.push(pushBean)*/
         // web端推送
         def webPush = PushCenter.createFactory(PushCenter.WEB)
-        webPush.webPush('userId6', [type:'1', oj:'oj'])
+        webPush.webPush('userId491', 'todoAlert', [pTitle:'王磊', id:'95631', clock:'23:59'])
     }
 
     public static void setConfigRootPath (String path) {

@@ -3,6 +3,7 @@ package com.rishiqing.base.webpush
 import com.rishiqing.PushCenter
 import com.rishiqing.base.push.AbstractPush
 import com.rishiqing.base.webpush.util.WebPushConfig
+import com.rishiqing.utils.PushCommonUtil
 import groovyx.net.http.AsyncHTTPBuilder
 import groovyx.net.http.ContentType
 import groovyx.net.http.EncoderRegistry
@@ -21,9 +22,11 @@ class WebPush extends AbstractPush{
         String url = WebPushConfig.getWebSocketUrl()
         def http = new HTTPBuilder(url)
         try {
+            http.encoderRegistry = new EncoderRegistry( charset:'utf-8' )
             http.request( POST, JSON ) { req ->
 /*                uri.path = WebPushConfig.getRouter()*/
                 body = generateParams(roomId, map)
+                requestContentType = URLENC
                 response.success= {resp, reader->
                     if (!reader.success) {
                         println('webPush failed :' + reader.message)
@@ -40,10 +43,11 @@ class WebPush extends AbstractPush{
     def generateParams (String roomId,Map body) {
         def params = [:]
         params.authCode = WebPushConfig.getAuthCode()
-        params.notification = body.toString()
+        params.notification = PushCommonUtil.mapToJson(body)
         params.audience = [
             roomId : roomId
         ]
-        return params;
+        def json  = PushCommonUtil.mapToJson(params) ;
+        return json
     }
 }

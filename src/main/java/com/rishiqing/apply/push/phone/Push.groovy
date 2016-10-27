@@ -1,4 +1,4 @@
-package com.rishiqing.apply.push
+package com.rishiqing.apply.push.phone
 
 import com.rishiqing.apply.base.AbstractApplyPush
 

@@ -1,14 +1,13 @@
 package com.rishiqing
 
-import com.rishiqing.apply.push.Push
+import com.rishiqing.apply.push.phone.Push
 import com.rishiqing.apply.base.AbstractApplyPush
 import com.rishiqing.base.jpush.JPush
 import com.rishiqing.base.push.AbstractPush
 import com.rishiqing.base.alipush.AliPush
 import com.rishiqing.base.mipush.MiPush
 import com.rishiqing.base.push.PushBean
-import com.sun.org.apache.bcel.internal.generic.PUSH
-import org.apache.log4j.BasicConfigurator
+import com.rishiqing.base.webpush.WebPush
 
 /**
  * Created by solax on 2016/8/22.
@@ -29,6 +28,12 @@ class PushCenter {
 
     public final static  String JPUSH     = 'jPush'*/
 
+    public final static String WEB = 'web'
+
+    public final static String PHONE = 'phone'
+
+    public final static AbstractPush WEB_PUSH = new WebPush()
+
     public final static AbstractPush MI_PUSH = new MiPush()
 
     public final static AbstractPush ALI_PUSH = new AliPush()
@@ -36,7 +41,22 @@ class PushCenter {
     public  final static AbstractPush J_PUSH   = new JPush()
 
     public static AbstractApplyPush createFactory () {
-        return new Push()
+        return PushCenter.createFactory(PushCenter.PHONE)
+    }
+
+    public static  AbstractApplyPush createFactory (String type) {
+        AbstractApplyPush push
+        switch (type) {
+            case  WEB :
+                push = new com.rishiqing.apply.push.web.Push(WEB_PUSH)
+                break;
+            case  PHONE :
+                push =  new Push()
+                break;
+            default:
+                break;
+        }
+        return push
     }
 
     public static void main (String  [] args) {
@@ -58,6 +78,9 @@ class PushCenter {
         pushBean.addExtra('ddd',22)
         // 推送提醒
         push.notice.push(pushBean)
+        // web端推送
+        def webPush = PushCenter.createFactory(PushCenter.WEB)
+        webPush.webPush('userId6', [type:'1', oj:'oj'])
     }
 
     public static void setConfigRootPath (String path) {

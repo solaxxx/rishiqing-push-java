@@ -1,7 +1,7 @@
 package com.rishiqing.apply.base
 
-import com.rishiqing.apply.push.Message
-import com.rishiqing.apply.push.Notice
+import com.rishiqing.apply.push.phone.Message
+import com.rishiqing.apply.push.phone.Notice
 import com.rishiqing.base.push.AbstractPush
 
 /**
@@ -20,4 +20,5 @@ abstract  class AbstractApplyPush {
         message.addAndroidPush(push)
         notice.addAndroidPush(push)
     }
+    public void webPush (String roomId, Map map) {}
 }

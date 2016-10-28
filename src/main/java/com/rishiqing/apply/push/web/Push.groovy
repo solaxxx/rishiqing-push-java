@@ -27,7 +27,7 @@ class Push  extends AbstractApplyPush{
     }
 
     private void pushTo (String roomId, Map map) {
-        ThreadUtil.executeTread(new Runnable(){
+        this.threadUtil.executeTread(new Runnable(){
             @Override
             public void run() {
                 try{  webPush.push(roomId, map)}catch (Exception e){ e.printStackTrace() }

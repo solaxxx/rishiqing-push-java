@@ -14,6 +14,8 @@ class PushBean implements Cloneable{
 
     public static TARGET_ALIAS =  'alias'
 
+    private static int TITLE_LENGTH =  20
+
     public int deviceRecord = 0 // 0 android  1 ios
 
     /**
@@ -65,31 +67,31 @@ class PushBean implements Cloneable{
     private  String   alias
 
     PushBean(String title, String description) {
-        this.title = title
+        this.setTitle(title)
         this.description = description
     }
 
     PushBean(String title, String description, String targetValue) {
-        this.title = title
+        this.setTitle(title)
         this.description = description
         this.targetValue = targetValue
     }
 
     PushBean(String title, String description, List targetValue) {
-        this.title = title
+        this.setTitle(title)
         this.description = description
         this.targetValue = targetValue
     }
 
     PushBean(String title, String description, Object targetValue, extra) {
-        this.title = title
+        this.setTitle(title)
         this.description = description
         this.targetValue = targetValue
         this.extra = extra
     }
 
     PushBean(String title, String description, String target, Object targetValue, extra) {
-        this.title = title
+        this.setTitle(title)
         this.description = description
         this.target = target
         this.targetValue = targetValue
@@ -109,6 +111,14 @@ class PushBean implements Cloneable{
     }
 
     void setTitle(String title) {
+        if (!title) {
+            this.title = 'title'
+            return
+        }
+        if (title.length() > TITLE_LENGTH) {
+            this.title = title.substring(0,17) + '...'
+            return
+        }
         this.title = title
     }
 

@@ -105,7 +105,7 @@ class PushCenter {
         push.addIosPush(PushCenter.J_PUSH)
         push.addIosPush(PushCenter.MI_PUSH)
         // 设置推送内容
-        PushBean pushBean = new PushBean('斯蒂芬斯蒂芬斯蒂芬斯蒂芬斯蒂芬斯蒂芬撒旦法撒旦发射电风扇地方斯蒂芬是', "sss")
+        PushBean pushBean = new PushBean('斯蒂芬斯蒂芬斯蒂芬斯蒂芬斯蒂芬斯蒂芬撒旦法撒旦发射电风扇地方斯蒂芬是', "第三方斯蒂芬撒斯蒂芬速度")
         pushBean.targetValue = '282'
         pushBean.soundURL = 'pushsound'
         pushBean.addExtra('sss',11)

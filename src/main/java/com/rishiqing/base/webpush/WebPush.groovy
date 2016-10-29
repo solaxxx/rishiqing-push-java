@@ -37,7 +37,7 @@ class WebPush extends AbstractPush{
                 }
             }
         } catch (Exception e) {
-            e.printStackTrace()
+            println('webPush failed : Exception catch -- ' + e.message)
         }
     }
     def generateParams (String roomId,Map body) {

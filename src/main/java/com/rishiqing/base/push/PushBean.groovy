@@ -68,31 +68,31 @@ class PushBean implements Cloneable{
 
     PushBean(String title, String description) {
         this.setTitle(title)
-        this.description = description
+        this.setDescription(description)
     }
 
     PushBean(String title, String description, String targetValue) {
         this.setTitle(title)
-        this.description = description
+        this.setDescription(description)
         this.targetValue = targetValue
     }
 
     PushBean(String title, String description, List targetValue) {
         this.setTitle(title)
-        this.description = description
+        this.setDescription(description)
         this.targetValue = targetValue
     }
 
     PushBean(String title, String description, Object targetValue, extra) {
         this.setTitle(title)
-        this.description = description
+        this.setDescription(description)
         this.targetValue = targetValue
         this.extra = extra
     }
 
     PushBean(String title, String description, String target, Object targetValue, extra) {
         this.setTitle(title)
-        this.description = description
+        this.setDescription(description)
         this.target = target
         this.targetValue = targetValue
         this.addExtra(extra)
@@ -127,7 +127,8 @@ class PushBean implements Cloneable{
     }
 
     void setDescription(String description) {
-        this.description = description
+        // this.description = description
+        this.description = '知识工作者的瑞士军刀'
     }
 
     String getTarget() {

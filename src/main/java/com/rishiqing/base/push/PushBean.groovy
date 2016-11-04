@@ -130,7 +130,9 @@ class PushBean implements Cloneable{
 
     void setDescription(String description) {
         this.description = HtmlScript.delHTMLTag(description)
-        this.description = this.description.substring(0,19)
+        if ( this.description.length() > 19) {
+            this.description = this.description.substring(0,19)
+        }
     }
 
     String getTarget() {

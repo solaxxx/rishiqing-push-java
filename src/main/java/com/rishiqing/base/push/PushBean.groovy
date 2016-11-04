@@ -1,6 +1,8 @@
 package com.rishiqing.base.push
 
 import com.rishiqing.base.mipush.util.MiPushConfig
+import com.rishiqing.utils.HtmlScript
+import com.rishiqing.utils.PushCommonUtil
 
 /**
  * Created by solax on 2016/10/11.
@@ -127,8 +129,8 @@ class PushBean implements Cloneable{
     }
 
     void setDescription(String description) {
-        // this.description = description
-        this.description = '知识工作者的瑞士军刀'
+        this.description = HtmlScript.delHTMLTag(description)
+        this.description = this.description.substring(0,19)
     }
 
     String getTarget() {

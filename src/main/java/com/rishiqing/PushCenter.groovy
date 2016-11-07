@@ -115,9 +115,9 @@ class PushCenter {
 
         // 设置推送内容
         PushBean pushBean = new PushBean('斯蒂芬斯蒂芬斯蒂芬斯蒂芬斯蒂芬斯蒂芬撒旦法撒旦发射电风扇地方斯蒂', "第三方斯蒂芬撒斯蒂芬速度第三方斯蒂芬撒")
-       // pushBean.targetValue = '282'
+        pushBean.targetValue = '282'
         pushBean.soundURL = 'pushsound'
-        pushBean.target ='all'
+        // pushBean.target ='all'
         pushBean.addExtra('sss',11)
         pushBean.addExtra('ddd',22)
         // 推送提醒

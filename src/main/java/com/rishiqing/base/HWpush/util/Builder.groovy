@@ -25,7 +25,7 @@ class Builder {
             resultMap.tags  = getTag(pushBean)
         }
         resultMap.android = this.getBody(pushBean)
-        // println(PushCommonUtil.mapToJson(resultMap))
+        println(PushCommonUtil.mapToJson(resultMap))
         return resultMap
     }
 
@@ -59,10 +59,16 @@ class Builder {
     private static def getTag (PushBean pushBean) {
         if (!pushBean.targetValue) return null
         def result = [:], mapList = []
-        mapList.add(['uid' : pushBean.targetValue])
-        result.tags = mapList
+        mapList.add(['uId' : pushBean.targetValue])
+       result.tags = mapList
       //  def jsonString  =  JSONObject.toJSONString(result)
        // println('huawei tag = ' + jsonString);
+        return result
+    }
+
+    private static def getExcludeTags () {
+        def result = [:], mapList = []
+        result.exclude_tags = mapList
         return result
     }
 }

@@ -3,6 +3,7 @@ package com.rishiqing
 import com.rishiqing.apply.push.phone.Push
 import com.rishiqing.apply.base.AbstractApplyPush
 import com.rishiqing.base.HWpush.HWPush
+import com.rishiqing.base.HWpush.util.IHuawei
 import com.rishiqing.base.jpush.JPush
 import com.rishiqing.base.push.AbstractPush
 import com.rishiqing.base.alipush.AliPush
@@ -24,7 +25,7 @@ import java.util.concurrent.ThreadPoolExecutor
 
 class PushCenter {
 
-    private  static configRootPath
+    private  static configRootPath = 'push'
 
 /*    public  final static  String HUAWEI = 'huawei'
 
@@ -98,20 +99,22 @@ class PushCenter {
         return push
     }
 
-
+    public static HWPush getHWPush () {
+        return HW_PUSH
+    }
 
     public static void main (String  [] args) {
         // 设置推送配置文件目录
-        PushCenter.setConfigRootPath('push')
+       // PushCenter.setConfigRootPath('push')
        // 获取推送对象
-        def push = PushCenter.createFactory()
+        /*def push = PushCenter.createFactory()*/
         // 设置推送类型
        // push.addAndroidPush(PushCenter.MI_PUSH)
        // push.addAndroidPush(PushCenter.J_PUSH)
        // push.addAndroidPush(PushCenter.ALI_PUSH)
         //push.addIosPush(PushCenter.J_PUSH)
         //push.addIosPush(PushCenter.MI_PUSH)
-        push.addAndroidPush(PushCenter.HW_PUSH)
+/*        push.addAndroidPush(PushCenter.HW_PUSH)
 
         // 设置推送内容
         PushBean pushBean = new PushBean('斯蒂芬斯蒂芬斯蒂芬斯蒂芬斯蒂芬斯蒂芬撒旦法撒旦发射电风扇地方斯蒂', "第三方斯蒂芬撒斯蒂芬速度第三方斯蒂芬撒")
@@ -121,10 +124,14 @@ class PushCenter {
         pushBean.addExtra('sss',11)
         pushBean.addExtra('ddd',22)
         // 推送提醒
-        push.notice.push(pushBean)
+        push.notice.push(pushBean)*/
         /*       // web端推送
                def webPush = PushCenter.createFactory(PushCenter.WEB)
                webPush.webPush('userId491', 'todoAlert', [pTitle:'斯蒂芬斯蒂芬斯蒂芬斯蒂芬斯蒂芬斯蒂芬撒旦法撒旦发射电风扇地方斯蒂芬是', id:'95631', clock:'23:59'])*/
+        HWPush hwPush = PushCenter.getHWPush()
+        hwPush.getUserTag()
+        //hwPush.setUserTag('_d9c158cd141242b200000147100CN01', 'uId', '5')
+        //hwPush.removeUserTag('_d9c158cd141242b200000147100CN01', 'uId')
     }
 
     public static void setConfigRootPath (String path) {

@@ -26,7 +26,28 @@ class Push  extends AbstractApplyPush{
         this.pushTo(roomId, map)
     }
 
+    def void webPush (List list, String type, Map map) {
+        def p = [
+                type: type,
+                body : map
+        ]
+        this.pushTo(list, p)
+    }
+
+    def void webPush (List list, Map map) {
+        this.pushTo(list, map)
+    }
+
     private void pushTo (String roomId, Map map) {
+        this.threadUtil.executeTread(new Runnable(){
+            @Override
+            public void run() {
+                try{  webPush.push(roomId, map)}catch (Exception e){ e.printStackTrace() }
+            }
+        })
+    }
+
+    private void pushTo (List roomId, Map map) {
         this.threadUtil.executeTread(new Runnable(){
             @Override
             public void run() {

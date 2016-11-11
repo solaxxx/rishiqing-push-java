@@ -35,4 +35,10 @@ abstract  class AbstractApplyPush {
         notice.addAndroidPush(push)
     }
     public void webPush (String roomId, Map map) {}
+
+    public void webPush (String roomId, String type, Map map) {}
+
+    public void webPush (List list, Map map) {}
+
+    public void webPush (List list, String type, Map map) {}
 }

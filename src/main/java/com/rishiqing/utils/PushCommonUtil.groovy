@@ -10,6 +10,25 @@ import java.security.MessageDigest
  * Created by solax on 2016/10/24.
  */
 class PushCommonUtil {
+
+    static String ListToString (String list) {
+        return list
+    }
+
+    static String ListToString (List list) {
+        String targetValue = '';
+        int index = 1;
+        list.each{ it ->
+            if (index != list.size()) {
+                targetValue += it + ','
+            } else {
+                targetValue += it
+            }
+            index ++
+        }
+        return  targetValue
+    }
+
     static String mapToJson (Map map) {
         JSONObject jo = JSONObject.fromObject(map)
         return jo.toString()

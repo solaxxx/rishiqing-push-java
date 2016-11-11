@@ -18,14 +18,30 @@ import static groovyx.net.http.Method.*
  * Created by solax on 2016/10/26.
  */
 class WebPush extends AbstractPush{
+
+    /**
+     * 批量发送
+     * @param roomIdList
+     * @param map
+     */
+    def void push (List roomIdList, Map map) {
+        String roomIds = PushCommonUtil.ListToString(roomIdList)
+        String body = generateRoomParams(roomIds, map)
+        this.send(body);
+    }
+
     def void push (String roomId, Map map) {
+        String body = generateRoomParams(roomId, map)
+        this.send(body);
+    }
+
+    private def void send (String params) {
         String url = WebPushConfig.getWebSocketUrl()
         def http = new HTTPBuilder(url)
         try {
             http.encoderRegistry = new EncoderRegistry( charset:'utf-8' )
             http.request( POST, JSON ) { req ->
-/*                uri.path = WebPushConfig.getRouter()*/
-                body = generateParams(roomId, map)
+                body = params
                 requestContentType = URLENC
                 response.success= {resp, reader->
                     if (!reader.success) {
@@ -40,7 +56,8 @@ class WebPush extends AbstractPush{
             println('webPush failed : Exception catch -- ' + e.message)
         }
     }
-    def generateParams (String roomId,Map body) {
+
+    def generateRoomParams (String roomId,Map body) {
         def params = [:]
         params.authCode = WebPushConfig.getAuthCode()
         params.notification = PushCommonUtil.mapToJson(body)

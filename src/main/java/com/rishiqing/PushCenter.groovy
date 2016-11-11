@@ -125,11 +125,14 @@ class PushCenter {
         pushBean.addExtra('ddd',22)
         // 推送提醒
         push.notice.push(pushBean)*/
-        /*       // web端推送
-               def webPush = PushCenter.createFactory(PushCenter.WEB)
-               webPush.webPush('userId491', 'todoAlert', [pTitle:'斯蒂芬斯蒂芬斯蒂芬斯蒂芬斯蒂芬斯蒂芬撒旦法撒旦发射电风扇地方斯蒂芬是', id:'95631', clock:'23:59'])*/
-        HWPush hwPush = PushCenter.getHWPush()
-        hwPush.getUserTag()
+            // web端推送
+       def webPush = PushCenter.createFactory(PushCenter.WEB)
+        def list = []
+        list.add('userId91')
+       webPush.webPush('userId92,293923,123123', [pTitle:'斯蒂芬斯蒂芬斯蒂芬斯蒂芬斯蒂芬斯蒂芬撒旦法撒旦发射电风扇地方斯蒂芬是', id:'95631', clock:'23:59'])
+
+        //HWPush hwPush = PushCenter.getHWPush()
+        //hwPush.getUserTag()
         //hwPush.setUserTag('_d9c158cd141242b200000147100CN01', 'uId', '5')
         //hwPush.removeUserTag('_d9c158cd141242b200000147100CN01', 'uId')
     }

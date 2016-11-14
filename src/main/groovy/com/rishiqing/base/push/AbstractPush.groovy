@@ -19,11 +19,4 @@ public abstract class AbstractPush {
        this.notice = notice;
        // this.notice = this.generateProxy(notice);
     }
-
-    private IMessage generateProxy(IMessage iMessage) {
-        ProxyHandle handel = new ProxyHandle();
-        ClassLoader cl = iMessage.getClass().getClassLoader();
-        IMessage proxy = (IMessage) Proxy.newProxyInstance(cl, new Class[] {IMessage.class},handel);
-        return  proxy;
-    }
 }

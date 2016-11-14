@@ -4,6 +4,19 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
+    <developers>
+        <developer>
+            <id>rishiqingproducts</id>
+            <name>rishiqing push</name>
+            <email>610320681@qq.com</email>
+        </developer>
+    </developers>
+
+    <!--在这里控制groovy 版本  -->
+    <properties>
+        <groovy.version>2.0.8</groovy.version>
+    </properties>
+
     <groupId>com.rishiqing</groupId>
     <artifactId>rishiqing-push-java</artifactId>
     <version>1.0</version>
@@ -40,24 +53,13 @@
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-all</artifactId>
-            <version>2.4.7</version>
+            <version>${groovy.version}</version>
         </dependency>
         <dependency>
             <groupId>com.googlecode.json-simple</groupId>
             <artifactId>json-simple</artifactId>
             <version>1.1.1</version>
         </dependency>
-<!--
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpcore-nio</artifactId>
-            <version>4.3.2</version>
-        </dependency>
-        <dependency>
-            <groupId>org.apache.httpcomponents</groupId>
-            <artifactId>httpasyncclient</artifactId>
-            <version>4.0.1</version>
-        </dependency>-->
         <dependency>
             <groupId>org.codehaus.groovy.modules.http-builder</groupId>
             <artifactId>http-builder</artifactId>
@@ -72,16 +74,14 @@
             <groupId>com.xiaomi</groupId>
             <artifactId>MIPush_SDK_Server</artifactId>
             <version>2.2.17</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/MiPush_SDK_Server_2_2_17.jar</systemPath>
+<!--            <scope>system</scope>
+            <systemPath>${basedir}/lib/MiPush_SDK_Server_2_2_17.jar</systemPath>-->
         </dependency>
         <!--华为推送相关依赖-->
         <dependency>
             <groupId>client-adapter-sdk-java-oauth2-json</groupId>
             <artifactId>client-adapter-sdk-java-oauth2</artifactId>
             <version>0.3.12</version>
-            <scope>system</scope>
-            <systemPath>${project.basedir}/lib/client-adapter-sdk-java-oauth2-json-0.3.12.jar</systemPath>
         </dependency>
         <dependency>
             <groupId>com.alibaba</groupId>
@@ -99,109 +99,81 @@
         <url></url>
         <connection></connection>
     </scm>
-    <developers>
-        <developer>
-            <id>rishiqingproducts</id>
-            <name>rishiqing push</name>
-            <email>610320681@qq.com</email>
-        </developer>
-    </developers>
+
     <build>
         <plugins>
-<!--            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.10</version>
+            <!--groovy maven 编译插件-->
+            <plugin>
+                <groupId>org.codehaus.gmavenplus</groupId>
+                <artifactId>gmavenplus-plugin</artifactId>
+                <version>1.5</version>
                 <executions>
                     <execution>
-                        <id>unpack-dependencies</id>
-                        <phase>package</phase>
                         <goals>
-                            <goal>unpack-dependencies</goal>
+                            <goal>execute</goal>
+                            <goal>compile</goal>
                         </goals>
-                        <configuration>
-                            <includes>**/*.class</includes>
-                            <excludes>**/*.properties</excludes>
-                            <outputDirectory>${project.build.directory}/alternateLocation</outputDirectory>
-                            <overWriteReleases>false</overWriteReleases>
-                            <overWriteSnapshots>true</overWriteSnapshots>
-                        </configuration>
                     </execution>
                 </executions>
-            </plugin>-->
- <!--           <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.10</version>
-                <executions>
-                    <execution>
-                        <id>unpack</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>unpack</goal>
-                        </goals>
-                        <configuration>
-                            &lt;!&ndash; configure the plugin here &ndash;&gt;
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>-->
-<!--            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.10</version>
-                <executions>
-                    <execution>
-                        <id>copy-dependencies</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>copy-dependencies</goal>
-                        </goals>
-                        <configuration>
-                            &lt;!&ndash; configure the plugin here &ndash;&gt;
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>-->
-     <!--       <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-dependency-plugin</artifactId>
-                <version>2.10</version>
-                <executions>
-                    <execution>
-                        <id>unpack-dependencies</id>
-                        <phase>package</phase>
-                        <goals>
-                            <goal>unpack-dependencies</goal>
-                        </goals>
-                        <configuration>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>-->
-            <!--            <plugin>
-                            <artifactId>maven-compiler-plugin</artifactId>
-                            <version>2.3.2</version>
-                            <configuration>
-                                <source>1.7</source>
-                                <target>1.7</target>
-                                <encoding>UTF-8</encoding>
-                                <compilerArguments>
-                                    <extdirs>${project.basedir}/lib</extdirs>
-                                </compilerArguments>
-                            </configuration>
-                        </plugin>-->
-<!--            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-jar-plugin</artifactId>
                 <configuration>
-                    <archive>
-                        <manifest>
-                            <addClasspath>true</addClasspath>
-                        </manifest>
-                    </archive>
+                    <scripts>
+                        <script><![CDATA[// your script here ]]></script>
+                    </scripts>
                 </configuration>
-            </plugin>-->
+                <dependencies>
+                    <dependency>
+                        <groupId>org.codehaus.groovy</groupId>
+                        <artifactId>groovy-all</artifactId>
+                        <!-- any version of Groovy \>= 1.5.0 should work here -->
+                        <version>${groovy.version}</version>
+                        <scope>runtime</scope>
+                    </dependency>
+                </dependencies>
+            </plugin>
+            <!--本地依赖加入本地仓库插件-->
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-install-plugin</artifactId>
+                <version>2.5.2</version>
+                <executions>
+                    <!--华为推送本地仓库初始化-->
+                    <execution>
+                        <id>oauth2</id>
+                        <phase>clean</phase>
+                        <configuration>
+                            <file>${basedir}/lib/client-adapter-sdk-java-oauth2-json-0.3.12.jar</file>
+                            <repositoryLayout>default</repositoryLayout>
+                            <groupId>client-adapter-sdk-java-oauth2-json</groupId>
+                            <artifactId>client-adapter-sdk-java-oauth2</artifactId>
+                            <version>0.3.12</version>
+                            <packaging>jar</packaging>
+                            <generatePom>true</generatePom>
+                        </configuration>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                    </execution>
+                    <!--小米推送本地仓库初始化-->
+                    <execution>
+                        <id>install-external</id>
+                        <phase>clean</phase>
+                        <configuration>
+                            <file>${basedir}/lib/MiPush_SDK_Server_2_2_17.jar</file>
+                            <repositoryLayout>default</repositoryLayout>
+                            <groupId>com.xiaomi</groupId>
+                            <artifactId>MIPush_SDK_Server</artifactId>
+                            <version>2.2.17</version>
+                            <packaging>jar</packaging>
+                            <generatePom>true</generatePom>
+                        </configuration>
+                        <goals>
+                            <goal>install-file</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!--依赖包组合打包插件-->
            <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
                 <version>2.5.4</version>

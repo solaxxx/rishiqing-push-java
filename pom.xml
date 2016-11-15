@@ -14,7 +14,7 @@
 
     <!--在这里控制groovy 版本  -->
     <properties>
-        <groovy.version>2.4.7</groovy.version>
+        <groovy.version>2.0.8</groovy.version>
     </properties>
 
     <groupId>com.rishiqing</groupId>
@@ -107,7 +107,7 @@
 
         <testOutputDirectory>output/test-classes</testOutputDirectory>-->
       <!--  <outputDirectory>target/classes</outputDirectory>-->
-        <directory>target/${groovy.version}</directory>
+        <directory>dist/${groovy.version}</directory>
         <plugins>
             <!--groovy maven 编译插件-->
             <plugin>

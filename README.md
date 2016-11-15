@@ -125,7 +125,7 @@ def push = PushCenter.createFactory(PushCenter.PHONE)
 * 修改pom.xml中配置
 
 <pre><code>
-   "<groovy.version>2.3.8</groovy.version>" // 修改为任意版本号
+   </groovy.version>2.3.8</groovy.version> // 修改为任意版本号
 </code></pre>
 
 

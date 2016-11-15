@@ -9,6 +9,7 @@ V 1.0.0
 
 下载
 -----
+默认只提供groovy 2.0.8和2.4.7的版本，如果需要其它版本，可以自行打包
 https://github.com/solaxxx/rishiqing-push-java/tree/master/target
 
 
@@ -74,7 +75,7 @@ https://github.com/solaxxx/rishiqing-push-java/tree/master/target
 
 方法详细说明
 -----
-PushCenter静态方法
+* PushCenter静态方法
 
 | name          | method        |remark |
 | ------------- |:-------------:| ------- |
@@ -83,7 +84,7 @@ PushCenter静态方法
 
 
 
-PushCenter.createFactory()对象方法
+* PushCenter.createFactory()对象方法
 
 生成推送对象：
 def push = PushCenter.createFactory(PushCenter.PHONE)
@@ -102,7 +103,7 @@ def push = PushCenter.createFactory(PushCenter.PHONE)
 |push|.message.push()|发送透传消息|PushBean|
 
 
-PushBean 对象方法
+* PushBean 对象方法
 
 | name          | method        |remark |
 | ------------- |:-------------:| ------- |
@@ -117,9 +118,20 @@ PushBean 对象方法
 
 打包方式
 -----
-* 打包：mvn package
-* 打包并跳过测试：mvn package -Dmaven.test.skip=true
-* 注：打包目前不够完善，需要手动把打包后jar包中的MiPush_SDK_Server_2_2_17.jar > xiaomi包拷贝到com目录中
+* 打包：mvn clean package
+
+打包其他groovy版本
+-----
+* 修改pom.xml中配置
+<pre><code>
+   <groovy.version>2.3.8</groovy.version> // 修改为任意版本号
+</code></pre>
+
+*  运行打包命令 mvn clean package
+*  jar包生成在/target/2.3.8/下
+*  rishiqing-push-java-1.0.jar 不包含依赖包
+*  rishiqing-push-java-1.0-jar-with-dependencies.jar 包含依赖包
+
 
 备注
 -----

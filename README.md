@@ -9,8 +9,10 @@ V 1.0.0
 
 下载
 -----
-默认只提供groovy 2.0.8和2.4.7的版本，如果需要其它版本，可以自行打包
 https://github.com/solaxxx/rishiqing-push-java/tree/master/target
+
+默认只提供groovy 2.0.8和2.4.7的版本，如果需要其它版本，可以自行打包
+
 
 
 

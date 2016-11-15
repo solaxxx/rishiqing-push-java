@@ -123,9 +123,11 @@ def push = PushCenter.createFactory(PushCenter.PHONE)
 打包其他groovy版本
 -----
 * 修改pom.xml中配置
+
 <pre><code>
-   <groovy.version>2.3.8</groovy.version> // 修改为任意版本号
+   "<groovy.version>2.3.8</groovy.version>" // 修改为任意版本号
 </code></pre>
+
 
 *  运行打包命令 mvn clean package
 *  jar包生成在/target/2.3.8/下

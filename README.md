@@ -66,6 +66,11 @@ https://github.com/solaxxx/rishiqing-push-java/tree/master/target
     push.notice.push(pushBean)                                        //  发送通知栏消息
 </code></pre>
 
+* 使用 webSocket推送
+<pre><code>
+     def webPush = PushCenter.createFactory(PushCenter.WEB)            // 获得推送实例
+     webPush.webPush('roomId1', [pTitle:'标题', id:'95631', clock:'23:59']) // 推送
+</code></pre>
 
 方法详细说明
 -----
@@ -73,7 +78,7 @@ https://github.com/solaxxx/rishiqing-push-java/tree/master/target
 
 | name          | method        |remark |
 | ------------- |:-------------:| ------- |
-| PushCenter    | createFactory(String type) |PushCenter.HUAWEI 华为, PushCenter.MI 小米。默认是小米
+| PushCenter    | createFactory(String type) |PushCenter.PHONE 移动端推送, PushCenter.WEB weSocket推送。默认是移动端
 | pushBean      | setTitle(String title)      |设置标题|
 |               | setDescription(String description)      |设置描述|
 |               | setTarget(String target)      |设置目标类型  PushBean.TARGET_ALL , PushBean.TARGET_ALIAS(默认) |
@@ -83,7 +88,7 @@ https://github.com/solaxxx/rishiqing-push-java/tree/master/target
 * PushCenter对象方法
 
 生成推送对象：
-def push = PushCenter.createFactory(PushCenter.HUAWEI)
+def push = PushCenter.createFactory(PushCenter.PHONE)
 
 | method        | remark     |
 | ------------- | ------------- |

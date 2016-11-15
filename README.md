@@ -74,28 +74,38 @@ https://github.com/solaxxx/rishiqing-push-java/tree/master/target
 
 方法详细说明
 -----
-* PushCenter静态方法
+PushCenter静态方法
 
 | name          | method        |remark |
 | ------------- |:-------------:| ------- |
 | PushCenter    | createFactory(String type) |PushCenter.PHONE 移动端推送, PushCenter.WEB weSocket推送。默认是移动端
+||setConfigRootPath(String path) 设置配置文件根目录路径，默认:'push'||
 
 
 
-* PushCenter.createFactory()对象方法
+PushCenter.createFactory()对象方法
 
 生成推送对象：
 def push = PushCenter.createFactory(PushCenter.PHONE)
 
+| name          | method        |remark |
+| ------------- |:-------------:| ------- |
+|push|addAndroidPush(String pushType)|设置推送类型：PushCenter.MI_PUSH 小米,PushCenter.ALI_PUSH,PushCenter.HW_PUSH|
+|||PushCenter.J_PUSH极光推送|
+|||PushCenter.ALI_PUSH阿里推送|
+|||PushCenter.J_PUSH华为推送|
+
+
 | method        | remark     |
 | ------------- | ------------- |
+|addAndroidPush()||
 | push.notice.push(PushBean pushBean)  | 发送提醒 |
 | push.message.push(PushBean pushBean)       | 发送消息,消息是静默的  |
 
 
 
 
-* PushBean 对象方法
+PushBean 对象方法
 
 | name          | method        |remark |
 | ------------- |:-------------:| ------- |

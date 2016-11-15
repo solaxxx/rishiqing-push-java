@@ -14,7 +14,7 @@
 
     <!--在这里控制groovy 版本  -->
     <properties>
-        <groovy.version>2.0.8</groovy.version>
+        <groovy.version>2.4.7</groovy.version>
     </properties>
 
     <groupId>com.rishiqing</groupId>
@@ -100,7 +100,14 @@
         <connection></connection>
     </scm>
 
+    <!--修改maven默认路径-->
     <build>
+<!--   <sourceDirectory>src/java</sourceDirectory>
+        <testSourceDirectory>src/test</testSourceDirectory>
+
+        <testOutputDirectory>output/test-classes</testOutputDirectory>-->
+      <!--  <outputDirectory>target/classes</outputDirectory>-->
+        <directory>target/${groovy.version}</directory>
         <plugins>
             <!--groovy maven 编译插件-->
             <plugin>

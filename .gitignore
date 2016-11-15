@@ -1,4 +1,8 @@
 .idea
 out
 rishiqing-push-java.iml
-out/
+archive-temp
+classes
+maven-archiver
+maven-status
+

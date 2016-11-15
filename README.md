@@ -98,8 +98,8 @@ def push = PushCenter.createFactory(PushCenter.PHONE)
 ||||PushCenter.J_PUSH极光推送|
 ||||PushCenter.ALI_PUSH阿里推送|
 ||||PushCenter.J_PUSH华为推送|
-|push||发送通知栏消息|.notice.push(PushBean pushBean)|
-|push||发送透传消息|.message.push(PushBean pushBean)|
+|push|.notice.push()|发送通知栏消息|PushBean|
+|push|.message.push()|发送透传消息|PushBean|
 
 
 PushBean 对象方法

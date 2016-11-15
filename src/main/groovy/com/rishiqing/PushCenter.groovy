@@ -11,6 +11,7 @@ import com.rishiqing.base.mipush.MiPush
 import com.rishiqing.base.push.PushBean
 import com.rishiqing.base.webpush.WebPush
 import com.rishiqing.utils.ThreadPool
+import com.xiaomi.xmpush.server.Constants
 
 import java.util.concurrent.ThreadPoolExecutor
 
@@ -122,6 +123,7 @@ class PushCenter {
         pushBean.soundURL = 'pushsound'
         // pushBean.target ='all'
         pushBean.addExtra('sss',11)
+        pushBean.addExtra('ddd',22)
         pushBean.addExtra('ddd',22)
         // 推送提醒
         push.notice.push(pushBean)

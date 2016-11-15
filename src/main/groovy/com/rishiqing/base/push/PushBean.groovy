@@ -54,7 +54,7 @@ class PushBean implements Cloneable{
 
     private int    passThrough = 0                  // 1表示透传消息，0表示通知栏消息。
 
-    private int    notifyType  = 1                   // 提示音类型
+    private int    notifyType  = -1                   // 提示音类型
 
     private long   timeToLive  = Long.parseLong(MiPushConfig.getTimeToLive()) // 离线保存时间，默认不离线保存
 

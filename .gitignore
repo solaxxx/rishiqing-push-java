@@ -2,3 +2,11 @@
 out
 rishiqing-push-java.iml
 /target
+archive-tmp
+classes
+maven-archiver
+maven-status
+!/target/2.0.8/
+!/target/2.4.7/
+!/target/2.0.8/*.jar
+!/target/2.4.7/*.jar

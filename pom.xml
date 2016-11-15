@@ -12,9 +12,11 @@
         </developer>
     </developers>
 
-    <!--在这里控制groovy 版本  -->
+
     <properties>
-        <groovy.version>2.4.7</groovy.version>
+        <!--在这里控制groovy 版本  -->
+        <groovy.version>2.0.8</groovy.version>
+        <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
     </properties>
 
     <groupId>com.rishiqing</groupId>
@@ -183,7 +185,7 @@
             <!--依赖包组合打包插件-->
            <plugin>
                 <artifactId>maven-assembly-plugin</artifactId>
-                <version>2.5.4</version>
+                <version>3.0.0</version>
                 <configuration>
                     <archive>
                         <manifest>
@@ -192,7 +194,7 @@
                         </manifest>
                     </archive>
                     <descriptors>
-                        <descriptor>src/main/assembly/src.xml</descriptor>
+                        <descriptor>/src/main/assembly/src.xml</descriptor>
                     </descriptors>
                     <descriptorRefs>
                         <descriptorRef>jar-with-dependencies</descriptorRef>
@@ -203,7 +205,7 @@
                         <id>make-assembly</id>
                         <phase>package</phase>
                         <goals>
-                            <goal>attached</goal>
+                            <goal>single</goal>
                         </goals>
                     </execution>
                 </executions>

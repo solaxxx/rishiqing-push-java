@@ -81,6 +81,7 @@ https://github.com/solaxxx/rishiqing-push-java/tree/master/target
 | PushCenter    | createFactory(String type) |PushCenter.PHONE 移动端推送, PushCenter.WEB weSocket推送。默认是移动端
 
 
+
 * PushCenter.createFactory()对象方法
 
 生成推送对象：
@@ -90,6 +91,8 @@ def push = PushCenter.createFactory(PushCenter.PHONE)
 | ------------- | ------------- |
 | push.notice.push(PushBean pushBean)  | 发送提醒 |
 | push.message.push(PushBean pushBean)       | 发送消息,消息是静默的  |
+
+
 
 
 * PushBean 对象方法

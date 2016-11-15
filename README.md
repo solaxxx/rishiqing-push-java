@@ -88,12 +88,12 @@ PushCenter.createFactory()对象方法
 生成推送对象：
 def push = PushCenter.createFactory(PushCenter.PHONE)
 
-| name          | method        |remark |
-| ------------- |:-------------:| ------- |
-|push|addAndroidPush(String pushType)|设置推送类型：PushCenter.MI_PUSH 小米,PushCenter.ALI_PUSH,PushCenter.HW_PUSH|
-|||PushCenter.J_PUSH极光推送|
-|||PushCenter.ALI_PUSH阿里推送|
-|||PushCenter.J_PUSH华为推送|
+| name          | method        |remark |params |
+| ------------- |:-------------:| ------- | ------- |
+|push|addAndroidPush(String pushType)|设置推送类型|PushCenter.MI_PUSH 小米,PushCenter.ALI_PUSH,PushCenter.HW_PUSH|
+||||PushCenter.J_PUSH极光推送|
+||||PushCenter.ALI_PUSH阿里推送|
+||||PushCenter.J_PUSH华为推送|
 
 
 | method        | remark     |

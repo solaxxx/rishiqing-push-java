@@ -9,7 +9,7 @@ V 1.0.0
 
 下载
 -----
-https://github.com/solaxxx/rishiqing-push-java/tree/master/dist
+https://github.com/solaxxx/rishiqing-push-java/tree/master/target
 
 
 

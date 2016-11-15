@@ -68,24 +68,20 @@ https://github.com/solaxxx/rishiqing-push-java/tree/master/target
 
 * 使用 webSocket推送
 <pre><code>
-     def webPush = PushCenter.createFactory(PushCenter.WEB)            // 获得推送实例
-     webPush.webPush('roomId1', [pTitle:'标题', id:'95631', clock:'23:59']) // 推送
+    def webPush = PushCenter.createFactory(PushCenter.WEB)            // 获得推送实例
+    webPush.webPush('roomId1', [pTitle:'标题', id:'95631', clock:'23:59']) // 推送
 </code></pre>
 
 方法详细说明
 -----
-* 对象
+* PushCenter静态方法
 
 | name          | method        |remark |
 | ------------- |:-------------:| ------- |
 | PushCenter    | createFactory(String type) |PushCenter.PHONE 移动端推送, PushCenter.WEB weSocket推送。默认是移动端
-| pushBean      | setTitle(String title)      |设置标题|
-|               | setDescription(String description)      |设置描述|
-|               | setTarget(String target)      |设置目标类型  PushBean.TARGET_ALL , PushBean.TARGET_ALIAS(默认) |
-|               | setTargetValue(Object object)     | 设置目标alias，可以是字符串也可以是list  例：‘1,2,3’ 或 list a = [] |
-|               | addExtra(String key, String value)      | 自定义参数，例：pushBean.addExtra('key','value')|
 
-* PushCenter对象方法
+
+* PushCenter.createFactory()对象方法
 
 生成推送对象：
 def push = PushCenter.createFactory(PushCenter.PHONE)
@@ -94,6 +90,19 @@ def push = PushCenter.createFactory(PushCenter.PHONE)
 | ------------- | ------------- |
 | push.notice.push(PushBean pushBean)  | 发送提醒 |
 | push.message.push(PushBean pushBean)       | 发送消息,消息是静默的  |
+
+
+* PushBean 对象方法
+
+| name          | method        |remark |
+| ------------- |:-------------:| ------- |
+| pushBean      | setTitle(String title)      |设置标题|
+|               | setDescription(String description)      |设置描述|
+|               | setTarget(String target)      |设置目标类型  PushBean.TARGET_ALL , PushBean.TARGET_ALIAS(默认) |
+|               | setTargetValue(Object object)     | 设置目标alias，可以是字符串也可以是list  例：‘1,2,3’ 或 list a = [] |
+|               | addExtra(String key, String value)      | 自定义参数，例：pushBean.addExtra('key','value')|
+
+
 
 
 打包方式

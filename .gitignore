@@ -1,10 +1,5 @@
 .idea
 out
 rishiqing-push-java.iml
-archive-temp
-classes
-maven-archiver
-maven-status
 /target
-!/dist/2.0.8/*.jar
-!/dist/2.4.7/*.jar
+

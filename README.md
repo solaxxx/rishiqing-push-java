@@ -90,11 +90,11 @@ def push = PushCenter.createFactory(PushCenter.PHONE)
 
 | name          | method        |remark |params |
 | ------------- |:-------------:| ------- | ------- |
-|push|addAndroidPush(String pushType)|设置Android推送类型|PushCenter.MI_PUSH 小米,PushCenter.ALI_PUSH,PushCenter.HW_PUSH|
+|push|addAndroidPush(String pushType)|设置Android推送类型|PushCenter.MI_PUSH 小米|
 ||||PushCenter.J_PUSH极光推送|
 ||||PushCenter.ALI_PUSH阿里推送|
 ||||PushCenter.J_PUSH华为推送|
-|push|addIosPush(String pushType)|设置iOS推送类型|PushCenter.MI_PUSH 小米,PushCenter.ALI_PUSH,PushCenter.HW_PUSH|
+|push|addIosPush(String pushType)|设置iOS推送类型|PushCenter.MI_PUSH 小米|
 ||||PushCenter.J_PUSH极光推送|
 ||||PushCenter.ALI_PUSH阿里推送|
 ||||PushCenter.J_PUSH华为推送|

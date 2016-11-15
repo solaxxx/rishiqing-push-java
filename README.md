@@ -15,28 +15,19 @@ https://github.com/solaxxx/rishiqing-push-java/tree/master/target
 
 简介
 -----
-* 推送系统融合了 ”阿里推送” 和 “小米推送”。
+* 服务端推送工具，可同时对多种类型推送进行发送
 
-* 无论是android 还是 ios，以小米推送做为主推送。
+* 目前支持的推送：
+    1.小米推送  （推荐）
+    2.极光推送  （推荐）
+    3.阿里推送
+    4.华为推送
+    5.webSocket推送 （推荐）
 
-* 使用阿里推送主要是因为阿里推送中有完整版的华为推送以及阿里原生推送。华为推送可以保证消息对于华为手机的送达率以及增加了app唤醒的可能性。
-
-* Andorid 推送类型选择：
-    def push = PushCenter.createFactory(PushCenter.HUAWEI) 构建推送对象时，只需要选择是使用 “华为推送” 或者 “ 小米推送即可”
-    参数：
-    PushCenter.HUAWEI 华为
-    PushCenter.MI 小米
-    NULL : 小米
-
-* Ios推送默认进行小米推送，无法修改。
-
-* 调用一次发送会给android 和 ios 端同时发送。
-
-* 以后会加入更多推送方式，以及更加自由的模式切换。
 
 准备工作
 -----
-* 将下载后的jar包中的aliPush-config.properties、miPush-config.properties拷贝出来，补全相关属性，放入工程的配置文件夹下即可
+* 将下载后的jar包中的push目录中的配置文件内容补全，放入工程的配置文件夹下即可
 
 
 
@@ -44,20 +35,34 @@ https://github.com/solaxxx/rishiqing-push-java/tree/master/target
 -----
 * 给一个指定用户发送消息
 <pre><code>
-    def push = PushCenter.createFactory(PushCenter.HUAWEI)            // android 端使用阿里推送，ios端默认使用小米推送，无法修改
-    PushBean pushBean = new PushBean('标题', "描述", '123')           //  给 alias为123 的用户发送一条提醒
+    def push = PushCenter.createFactory()                            //  获得推送实例
+    push.addAndroidPush(PushCenter.MI_PUSH)                          //  使用小米推送
+    PushBean pushBean = new PushBean('标题', "描述")                  //  构建推送对象
+    pushBean.targetValue = '282'                                     //  设置alias
     pushBean.addExtra('sss','sss')                                   //  自定义字段  
     pushBean.addExtra('ddd','ddd')                                   //  自定义字段  
-    push.notice.push(pushBean)                                       //  发送
+    push.notice.push(pushBean)                                       //  发送通知栏消息
 </code></pre>
 
-* 给所以用户发送消息
+* 给所有用户发送消息
 <pre><code>
-    def push = PushCenter.createFactory(PushCenter.HUAWEI)            // android 端使用阿里推送，ios端默认使用小米推送，无法修改
+    def push = PushCenter.createFactory()                             //  获得推送实例
+    push.addAndroidPush(PushCenter.MI_PUSH)                           //  使用小米推送
     PushBean pushBean = new PushBean('标题', "描述")         
-    pushBean.target ='all'                                            //  给 所有设备发送一条提醒
-    push.notice.push(pushBean)                                        //  发送
+    pushBean.target ='all'                                            //  给所有设备
+    push.notice.push(pushBean)                                        //  发送通知栏消息
 </code></pre>
+
+* 同时使用 “小米推送” 和 “极光推送” 
+<pre><code>
+    def push = PushCenter.createFactory()                             //  获得推送实例
+    push.addAndroidPush(PushCenter.MI_PUSH)                           //  使用小米推送
+    push.addAndroidPush(PushCenter.J_PUSH)                            //  使用极光推送
+    PushBean pushBean = new PushBean('标题', "描述")         
+    pushBean.target ='all'                                            //  给所有设备
+    push.notice.push(pushBean)                                        //  发送通知栏消息
+</code></pre>
+
 
 方法详细说明
 -----

@@ -90,19 +90,16 @@ def push = PushCenter.createFactory(PushCenter.PHONE)
 
 | name          | method        |remark |params |
 | ------------- |:-------------:| ------- | ------- |
-|push|addAndroidPush(String pushType)|设置推送类型|PushCenter.MI_PUSH 小米,PushCenter.ALI_PUSH,PushCenter.HW_PUSH|
+|push|addAndroidPush(String pushType)|设置Android推送类型|PushCenter.MI_PUSH 小米,PushCenter.ALI_PUSH,PushCenter.HW_PUSH|
 ||||PushCenter.J_PUSH极光推送|
 ||||PushCenter.ALI_PUSH阿里推送|
 ||||PushCenter.J_PUSH华为推送|
-
-
-| method        | remark     |
-| ------------- | ------------- |
-|addAndroidPush()||
-| push.notice.push(PushBean pushBean)  | 发送提醒 |
-| push.message.push(PushBean pushBean)       | 发送消息,消息是静默的  |
-
-
+|push|addIosPush(String pushType)|设置iOS推送类型|PushCenter.MI_PUSH 小米,PushCenter.ALI_PUSH,PushCenter.HW_PUSH|
+||||PushCenter.J_PUSH极光推送|
+||||PushCenter.ALI_PUSH阿里推送|
+||||PushCenter.J_PUSH华为推送|
+|push||发送通知栏消息|.notice.push(PushBean pushBean)|
+|push||发送透传消息|.message.push(PushBean pushBean)|
 
 
 PushBean 对象方法

@@ -24,6 +24,14 @@ https://github.com/solaxxx/rishiqing-push-java/tree/master/target
     4.华为推送
     5.webSocket推送 （推荐）
 
+| 类型        | 备注     |
+| ------------- | ------------- |
+| 小米推送 | 推荐 |
+| 极光推送 | 推荐 |
+| 阿里推送 |  |
+| 华为推送 |  |
+| webSocket推送 | 推荐 |
+
 
 准备工作
 -----

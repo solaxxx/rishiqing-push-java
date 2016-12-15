@@ -129,7 +129,11 @@ class PushBean implements Cloneable{
     }
 
     void setDescription(String description) {
-        this.description = HtmlScript.delHTMLTag(description)
+        String noHtmlStr = HtmlScript.delHTMLTag(description)
+        if (noHtmlStr == "") {
+            noHtmlStr = "点击查看"
+        }
+        this.description = noHtmlStr
         if ( this.description.length() > 19) {
             this.description = this.description.substring(0,19)
         }

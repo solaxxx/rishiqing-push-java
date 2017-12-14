@@ -1,6 +1,5 @@
 package com.rishiqing
 
-import com.rishiqing.base.push.PushBean
 import org.junit.Test
 import org.junit.After;
 import org.junit.AfterClass;

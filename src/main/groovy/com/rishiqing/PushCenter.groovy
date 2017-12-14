@@ -110,23 +110,24 @@ class PushCenter {
        // 获取推送对象
         def push = PushCenter.createFactory()
         // 设置推送类型
-       push.addAndroidPush(PushCenter.MI_PUSH)
+       // push.addAndroidPush(PushCenter.MI_PUSH)
+       push.addIosPush(PushCenter.MI_PUSH)
        // push.addAndroidPush(PushCenter.J_PUSH)
        // push.addAndroidPush(PushCenter.ALI_PUSH)
         //push.addIosPush(PushCenter.J_PUSH)
         //push.addIosPush(PushCenter.MI_PUSH)
-      push.addAndroidPush(PushCenter.HW_PUSH)
+      //push.addAndroidPush(PushCenter.HW_PUSH)
 
         // 设置推送内容
-        PushBean pushBean = new PushBean('斯蒂芬斯蒂芬斯蒂芬斯蒂芬斯蒂芬斯蒂芬撒旦法撒旦发射电风扇地方斯蒂', "第三方斯蒂芬撒斯蒂芬速度第三方斯蒂芬撒")
-        pushBean.targetValue = '282'
-        pushBean.soundURL = 'pushsound'
+        PushBean pushBean = new PushBean('透传', "透传2")
+        pushBean.targetValue = '582'//'282'
+        //pushBean.soundURL = 'pushsound'
         // pushBean.target ='all'
         pushBean.addExtra('sss',11)
         pushBean.addExtra('ddd',22)
         pushBean.addExtra('ddd',22)
         // 推送提醒
-        push.notice.push(pushBean)
+        push.message.push(pushBean)
             // web端推送
 /*
        def webPush = PushCenter.createFactory(PushCenter.WEB)

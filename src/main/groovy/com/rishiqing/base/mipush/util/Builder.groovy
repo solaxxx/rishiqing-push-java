@@ -55,6 +55,9 @@ class Builder {
                      .badge(Integer.parseInt(body.badge))               // 数字角标
                      .category(body.category)     // 快速回复类别
                      .timeToLive(body.timeToLive)      // 离线保存时间，默认不离线保存
+             if (body.passThrough == 1) {
+                 builder.extra('content-available', '1')
+             }
              if (body.extra) {
                  body.extra.each{ key, value ->
                      builder.extra(key, value)

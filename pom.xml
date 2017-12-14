@@ -167,11 +167,11 @@
                         <id>install-external</id>
                         <phase>clean</phase>
                         <configuration>
-                            <file>${basedir}/lib/MiPush_SDK_Server_2_2_17.jar</file>
+                            <file>${basedir}/lib/MiPush_SDK_Server_2_2_18.jar</file>
                             <repositoryLayout>default</repositoryLayout>
                             <groupId>com.xiaomi</groupId>
                             <artifactId>MIPush_SDK_Server</artifactId>
-                            <version>2.2.17</version>
+                            <version>2.2.18</version>
                             <packaging>jar</packaging>
                             <generatePom>true</generatePom>
                         </configuration>

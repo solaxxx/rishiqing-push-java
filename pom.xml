@@ -15,7 +15,7 @@
 
     <properties>
         <!--在这里控制groovy 版本  -->
-        <groovy.version>2.0.8</groovy.version>
+        <groovy.version>2.4.11</groovy.version>
         <project.build.sourceEncoding>utf-8</project.build.sourceEncoding>
     </properties>
 
@@ -27,7 +27,7 @@
         <dependency>
             <groupId>com.aliyun</groupId>
             <artifactId>aliyun-java-sdk-push</artifactId>
-            <version>2.2.1</version>
+            <version>3.5.0</version>
         </dependency>
         <!--jpush start  -->
         <dependency>
@@ -93,7 +93,8 @@
         <dependency>
             <groupId>org.apache.httpcomponents</groupId>
             <artifactId>httpclient</artifactId>
-            <version>4.3.3</version>
+            <!--<version>4.3.3</version>-->
+            <version>4.4.1</version>
         </dependency>
         <!--华为推送相关依赖结束-->
     </dependencies>

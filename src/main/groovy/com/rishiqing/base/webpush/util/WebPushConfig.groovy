@@ -9,14 +9,26 @@ import com.xiaomi.xmpush.server.Constants
 class WebPushConfig extends Config{
 
     private static Properties webPush = initializeConfig('webPush-config.properties');
+    private static Map configMap = [:]
 
     static getWebSocketUrl () {
-        return webPush.webSocketUrl.trim()
+        def webSocketUrl = configMap.get("web.socket.url")
+        if(webSocketUrl){
+            return webSocketUrl
+        }
+        return webPush."web.socket.url".trim()
     }
     static getRouter () {
         // return webPush.router.trim()
     }
     static getAuthCode () {
-        return webPush.authCode.trim()
+        def authCode = configMap.get("web.auth.code")
+        if(authCode){
+            return authCode
+        }
+        return webPush."web.auth.code".trim()
+    }
+    static initConfigMap(Map map){
+        configMap = map
     }
 }

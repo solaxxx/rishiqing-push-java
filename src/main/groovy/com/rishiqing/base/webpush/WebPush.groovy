@@ -40,8 +40,8 @@ class WebPush extends AbstractPush{
         def http = new HTTPBuilder(url)
         try {
             http.encoderRegistry = new EncoderRegistry( charset:'utf-8' )
-            http.getClient().getParams().setParameter("http.connection.timeout", 60)
-            http.getClient().getParams().setParameter("http.socket.timeout", 60)
+            http.getClient().getParams().setParameter("http.connection.timeout", 60000)
+            http.getClient().getParams().setParameter("http.socket.timeout", 60000)
             http.request( POST, JSON ) { req ->
                 body = params
                 requestContentType = URLENC
